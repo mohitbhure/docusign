@@ -424,7 +424,7 @@ let docusignStrategy = new DocusignStrategy({
 
 passport.use(docusignStrategy);
 
-schedule.scheduleJob('*/1 * * * *', async function () {
+schedule.scheduleJob('*/30 * * * * *', async function () {
 
     let userCursor = User.find({}).cursor();
     let user = null;
@@ -477,7 +477,8 @@ schedule.scheduleJob('*/1 * * * *', async function () {
 
 
 });
-schedule.scheduleJob('*/30 * * * * *', async function () {
+
+schedule.scheduleJob('*/1 * * * *', async function () {
     let documentCursor = Document.find({ parseStatus: 0 }).cursor();
     let document = null;
     while (document = await documentCursor.next()) {
