@@ -1,0 +1,21 @@
+version: "3.4"
+
+services:
+
+  mongodb:
+    image: mohitbhure/docusign:mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - db:/data/db
+    container_name: mongodb
+
+  app:
+    image: docusign
+    links:
+      - mongodb
+    ports:
+      - "8080:8080"
+    container_name: docusign
+volumes:
+  db:
