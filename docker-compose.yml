@@ -11,7 +11,7 @@ services:
     container_name: mongodb
 
   app:
-    image: docusign
+    image: mohitbhure/docusign:docusign-node
     links:
       - mongodb
     ports:
