@@ -21,7 +21,7 @@ var pdf2img = require('pdf-img-convert');
 const baseUriSuffix = '/restapi';
 const tokenReplaceMinGet = 60;
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 const HOST = process.env.HOST || 'localhost';
 const max_session_min = 180;
 

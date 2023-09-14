@@ -33,7 +33,7 @@
         const [documents, setDocuments] = React.useState([]);
         const [selectedDoc, setSelectedDoc] = React.useState(null);
         React.useEffect(() => {
-          fetch('http://localhost:3000/documents').then((response) => {
+          fetch('http://localhost:8080/documents').then((response) => {
             return response.json();
           }).then(data => {
             setDocuments(data);
