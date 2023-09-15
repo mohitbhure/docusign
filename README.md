@@ -33,6 +33,8 @@
 
     docker build -t docusign .
 
+    This will generate our image and tag it with a name docusign.
+
  4) Before running the two images we need to create a network which will be used for communication between both the images. Run the following command to create a network:
 
  docker network create node-webapp-network
@@ -41,9 +43,13 @@
 
  docker run -d -p 27017:27017 --network node-webapp-network --name mongodb mongo:latest
 
+ Here we run the mongodb on 27017 port and attach it to a network.
+
  6) Run the docusign image using the following command:
 
   docker run -d -p 8080:8080 --network node-webapp-network --name docusign docusign
+
+  Here we run the docusign image on 8080 port and attach it to the same network as that of mongodb so our database is accessible.
 
 
 Now the project will be running at http://localhost:8080/
