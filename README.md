@@ -46,7 +46,4 @@
   docker run -d -p 8080:8080 --network node-webapp-network --name docusign docusign
 
 
-
-
-
-This will launch two images and the project will be running at http://localhost:8080/
+Now the project will be running at http://localhost:8080/
