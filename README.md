@@ -23,14 +23,30 @@
  Installation:
 
  1) Go to project directory
- 2) Run the following two commands to get node and mongodb images from docker repository:
+ 2) First we need to install mongodb. So we pull the latest mongodb image using the following command
 
-  docker pull mohitbhure/docusign:docusign-node
+ docker pull mongo:latest
 
-  docker pull mohitbhure/docusign:mongo
+ This will install the latest mongodb
 
- 3) Execute the following command to run the container
+ 3) To generate the docker image for the project run the following command:
 
-    docker compose up
+    docker build -t docusign .
+
+ 4) Before running the two images we need to create a network which will be used for communication between both the images. Run the following command to create a network:
+
+ docker network create node-webapp-network
+
+ 5) Now we run the mongodb image using the following command:
+
+ docker run -d -p 27017:27017 --network node-webapp-network --name mongodb mongo:latest
+
+ 6) Run the docusign image using the following command:
+
+  docker run -d -p 8080:8080 --network node-webapp-network --name docusign docusign
+
+
+
+
 
 This will launch two images and the project will be running at http://localhost:8080/
